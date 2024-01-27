@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../images/favicon-32x32.png"
+    />
+
+    <link rel="stylesheet" href="css/output.css" />
+    <script src="./script.js" defer></script>
+    <style>
+      @keyframes slideIn {
+        0% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+      @keyframes moveIn {
+        0% {
+          transform: translateY(-100%);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+      .cart {
+        animation: moveIn 0.5s ease-in-out;
+      }
+
+      .sidebar {
+        animation: slideIn 0.5s ease-out;
+      }
+    </style>
+    <title>Frontend Mentor | E-commerce product page</title>
+  </head>
+
+  <body class="flex flex-col items-center relative body">
+    <nav class="flex flex-col p-6 w-full gap-7 lg:max-w-5xl">
+      <div
+        class="flex justify-between w-full lg:max-w-5xl lg:border-b-2 lg:border-gray-200 lg:border-solid"
+      >
+        <div class="flex lg:items-start items-center justify-center gap-5">
+          <div class="lg:hidden flex items-center">
+            <button class="btn-menu">
+              <img src="../images/icon-menu.svg" alt="menu" />
+            </button>
+          </div>
+          <div class="lg:pb-7">
+            <img src="../images/logo.svg" alt="logo" class="" />
+          </div>
+          <div class="hidden lg:inline ml-5">
+            <ul
+              class="flex font-semibold gap-5 text-slate-400 items-center text-xs"
+            >
+              <li
+                class="hover:border-red-500 border-b-2 border-transparent pb-7"
+              >
+                Collections
+              </li>
+              <li
+                class="hover:border-red-500 border-b-2 border-transparent pb-7"
+              >
+                Men
+              </li>
+              <li
+                class="hover:border-red-500 border-b-2 border-transparent pb-7"
+              >
+                Women
+              </li>
+              <li
+                class="hover:border-red-500 border-b-2 border-transparent pb-7"
+              >
+                About
+              </li>
+              <li
+                class="hover:border-red-500 border-b-2 border-transparent pb-7"
+              >
+                Contact
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="flex items-start gap-5">
+          <div class="relative">
+            <button class="btn-showcart">
+              <img src="../images/icon-cart.svg" alt="cart" />
+            </button>
+            <div
+              class="h-4 w-6 bg-orange-400 absolute -top-2 -right-3 pl-7 rounded-full hidden item-num-container"
+            >
+              <div class="relative pb-3 w-full">
+                <p class="absolute -top-1 right-2 text-white item-number">0</p>
+              </div>
+            </div>
+          </div>
+          <img src="../images/image-avatar.png" alt="avatar" class="h-6" />
+        </div>
+      </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <div
+      class="hidden h-screen w-3/4 bg-white fixed top-0 left-0 z-10 pl-5 pt-7 sidebar"
+    >
+      <button class="btn-close-menu">
+        <img src="../images/icon-close.svg" alt="" />
+      </button>
+      <ul class="mt-16 font-bold flex flex-col gap-3 text-black">
+        <li>Collections</li>
+        <li>Men</li>
+        <li>Women</li>
+        <li>About</li>
+        <li>Contact</li>
+      </ul>
+    </div>
+
+    <!-- IMAGE OVERLAY FOR LARGE SCREEN -->
+    <div class="absolute z-10 max-w-sm top-[15%] img-overlay-container hidden">
+      <div class="relative">
+        <img
+          src="../images/image-product-1.jpg"
+          alt=""
+          class="w-full rounded-lg h-1/4 img-el-overlay"
+        />
+        <div class="absolute -top-7 right-1">
+          <button class="btn-close-overlay">
+            <img src="../images/icon-close.svg" alt="" />
+          </button>
+        </div>
+
+        <!-- NEXT AND PREV BUTTON FOR IMG OVERLAY -->
+        <div class="absolute top-[35%] -left-4 bg-white rounded-[50%] w-9 h-9">
+          <img
+            src="../images/icon-previous.svg"
+            alt=""
+            class="top-1/4 left-3 absolute previous-btn-overlay"
+          />
+        </div>
+        <div class="absolute top-[35%] -right-4 bg-white rounded-[50%] w-9 h-9">
+          <img
+            src="../images/icon-next.svg"
+            alt=""
+            class="top-1/4 left-3 absolute next-btn-overlay"
+          />
+        </div>
+      </div>
+
+      <!-- THUMBNAILS FOR IMAGE OVERLAY -->
+      <div
+        class="flex mt-5 gap-4 justify-center pl-5 pr-5 items-center thumbnail-container-overlay"
+      >
+        <div class="">
+          <img
+            src="../images/image-product-1-thumbnail.jpg"
+            alt=""
+            class="h-16 rounded-lg hover:inset-0 hover:bg-white hover:opacity-70 thumbnail-img-overlay"
+          />
+        </div>
+        <div class="">
+          <img
+            src="../images/image-product-2-thumbnail.jpg"
+            alt=""
+            class="h-16 rounded-lg hover:inset-0 hover:bg-white hover:opacity-50 thumbnail-img-overlay"
+          />
+        </div>
+        <div class="">
+          <img
+            src="../images/image-product-3-thumbnail.jpg"
+            alt=""
+            class="h-16 rounded-lg hover:inset-0 hover:bg-white hover:opacity-50 thumbnail-img-overlay"
+          />
+        </div>
+        <div class="">
+          <img
+            src="../images/image-product-4-thumbnail.jpg"
+            alt=""
+            class="h-16 rounded-lg hover:inset-0 hover:bg-white hover:opacity-50 thumbnail-img-overlay"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN  -->
+    <main
+      class="flex flex-col items-center lg:flex-row max-w-6xl lg:gap-12 lg:pt-10 relative"
+    >
+      <!-- ADD TO CART -->
+      <div
+        class="bg-white absolute z-10 top-[1%] right-3 left-3 h-[37%] lg:h-[40%] rounded-xl lg:left-3/4 lg:-right-24 lg:-top-10 shadow-lg cart-el hidden cart"
+      >
+        <div class="flex flex-col mt-4 lg:mt-2">
+          <h3 class="mb-7 ml-5 mt-3 lg:mt-1 lg:mb-3 font-[551] text-lg">
+            Cart
+          </h3>
+          <div class="w-full h-[1px] bg-slate-300"></div>
+          <div class="relative">
+            <p
+              class="absolute hidden top-[50%] left-[50%] translate-x-[-50%] translate-y-[70%] mt-[20%] font-bold text-gray-400 empty-cart"
+            >
+              Your cart is empty.
+            </p>
+            <div
+              class="p-4 hidden flex-col gap-8 mt-8 lg:mt-5 lg:pt-0 lg:gap-5 ordered-cart"
+            >
+              <div class="flex items-center justify-between">
+                <div class="flex-shrink-0 w-1/5">
+                  <img
+                    src="../images/image-product-1-thumbnail.jpg"
+                    class="rounded-md"
+                    alt="product img"
+                  />
+                </div>
+                <div class="flex-grow ml-2 text-slate-400">
+                  <p class="text-lg lg:text-sm mr-1">
+                    Fall Limited Edition Sneakers
+                  </p>
+                  <p class="text-lg lg:text-base">
+                    $125 x <span class="text-lg lg:text-base num-item">0</span>
+                    <span class="font-bold text-black text-lg lg:text-base"
+                      >$</span
+                    ><span
+                      class="text-black text-lg font-bold lg:text-base total"
+                      >000.00</span
+                    >
+                  </p>
+                </div>
+                <div class="flex-shrink-0">
+                  <button class="btn-delete">
+                    <img src="../images/icon-delete.svg" alt="icon-delete" />
+                  </button>
+                </div>
+              </div>
+              <button
+                class="bg-orange-500 text-white pt-5 pb-5 lg:pt-2 lg:pb-2 rounded-lg"
+              >
+                Checkout
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main -->
+      <div class="lg:flex-1">
+        <div class="relative flex flex-col items-center">
+          <div class="lg:rounded-3xl lg:max-w-96 img-container">
+            <img
+              src="../images/image-product-1.jpg"
+              alt=""
+              class="h-full w-full lg:rounded-lg img-el lg:h-1/4"
+            />
+          </div>
+
+          <!-- FOR LARGE SCREEN SIZES -->
+          <div
+            class="lg:flex hidden mt-8 w-full items-center justify-between thumbnail-container"
+          >
+            <div class="">
+              <img
+                src="../images/image-product-1-thumbnail.jpg"
+                alt=""
+                class="h-20 lg:rounded-lg hover:inset-0 hover:bg-white hover:opacity-50 thumbnail-img"
+              />
+            </div>
+            <div>
+              <img
+                src="../images/image-product-2-thumbnail.jpg"
+                alt=""
+                class="h-20 lg:rounded-lg hover:inset-0 hover:bg-white hover:opacity-50 thumbnail-img"
+              />
+            </div>
+            <div>
+              <img
+                src="../images/image-product-3-thumbnail.jpg"
+                alt=""
+                class="h-20 lg:rounded-lg hover:inset-0 hover:bg-white hover:opacity-50 thumbnail-img"
+              />
+            </div>
+            <div>
+              <img
+                src="../images/image-product-4-thumbnail.jpg"
+                alt=""
+                class="h-20 lg:rounded-lg hover:inset-0 hover:bg-white hover:opacity-50 thumbnail-img"
+              />
+            </div>
+          </div>
+
+          <!-- Next and previous button -->
+          <div
+            class="lg:hidden absolute top-[45%] left-5 bg-white rounded-[50%] w-9 h-9"
+          >
+            <img
+              src="../images/icon-previous.svg"
+              alt=""
+              class="top-1/4 left-3 absolute previous-btn"
+            />
+          </div>
+          <div
+            class="absolute top-[45%] right-5 bg-white rounded-[50%] w-9 h-9 lg:hidden"
+          >
+            <img
+              src="../images/icon-next.svg"
+              alt=""
+              class="top-1/4 left-3 absolute next-btn"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="flex flex-col items-start lg:pl-8 lg:pr-8 lg:pb-8 lg:pt-2 p-5 lg:flex-1 lg:max-w-md max-w-xl"
+      >
+        <h3 class="text-orange-300 font-semibold tracking-wider text-xs">
+          SNEAKER COMPANY
+        </h3>
+        <h1 class="text-black font-bold text-3xl tracking-wide mt-3">
+          Fall Limited Edition
+        </h1>
+        <h1 class="text-black font-semibold text-3xl tracking-wide">
+          Sneakers
+        </h1>
+        <p class="mt-5 text-slate-400 text-base">
+          These low-profile sneakers are your perfect casual wear companion.
+          Featuring a durable rubber outer sole, they’ll withstand everything
+          the weather can offer.
+        </p>
+        <div
+          class="flex mt-5 items-center justify-between w-full lg:flex-col lg:justify-center lg:items-start"
+        >
+          <div class="flex items-center">
+            <p class="font-semibold text-2xl">$125.00</p>
+            <div
+              class="bg-orange-100 rounded pl-1 pr-1 font-bold text-orange-300 ml-3 text-center"
+            >
+              50%
+            </div>
+          </div>
+          <div class="">
+            <p class="text-slate-300 font-bold line-through decoration-2">
+              $250.00
+            </p>
+          </div>
+        </div>
+        <div class="w-full lg:flex-row flex flex-col lg:gap-2">
+          <div
+            class="flex justify-between mt-5 bg-slate-50 rounded-lg p-4 lg:flex-1"
+          >
+            <button class="btn-counter-minus">
+              <img src="../images/icon-minus.svg" alt="icon-minus" />
+            </button>
+            <p class="font-semibold counter">0</p>
+            <button class="btn-counter-plus">
+              <img src="../images/icon-plus.svg" alt="icon-plus" />
+            </button>
+          </div>
+          <button
+            class="flex mt-5 items-center justify-center w-full bg-orange-500 p-4 rounded-xl gap-4 lg:flex-1 btn-cart"
+          >
+            <div>
+              <img src="../images/icon-cart.svg" alt="" class="w-5" />
+            </div>
+            <p class="text-white font-semibold">Add to cart</p>
+          </button>
+        </div>
+      </div>
+    </main>
+    <div class="fixed inset-0 bg-black opacity-70 overlay-el hidden"></div>
+
+    <!-- <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </div> -->
+  </body>
+</html>
