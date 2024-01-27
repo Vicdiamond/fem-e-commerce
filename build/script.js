@@ -57,7 +57,7 @@ const thumbnailsFeatures = function (e, containClass, thumbnail, img) {
     'border-2',
     'border-orange-600'
   )
-  img.src = `../images/image-product-${clicked.src.slice(-15, -14)}.jpg`
+  img.src = `./images/image-product-${clicked.src.slice(-15, -14)}.jpg`
 }
 
 const addStylesToCurOverlay = function () {
@@ -85,9 +85,9 @@ const addStylesToCurOverlay = function () {
 const nextSlidesMainAndOverlay = function (imgEl) {
   const productNum = +imgEl.src.slice(-5, -4)
 
-  imgEl.src = `../images/image-product-${productNum + 1}.jpg`
+  imgEl.src = `./images/image-product-${productNum + 1}.jpg`
   if (productNum === 4) {
-    imgEl.src = `../images/image-product-1.jpg`
+    imgEl.src = `./images/image-product-1.jpg`
     return
   }
 }
@@ -96,11 +96,11 @@ const previousSlidesMainAndOverlay = function (imgEl) {
   const productNum = +imgEl.src.slice(-5, -4)
 
   if (productNum === 1) {
-    imgEl.src = `../images/image-product-4.jpg`
+    imgEl.src = `./images/image-product-4.jpg`
     return
   }
 
-  imgEl.src = `../images/image-product-${productNum - 1}.jpg`
+  imgEl.src = `./images/image-product-${productNum - 1}.jpg`
 }
 
 // EVENT LISTENERS
